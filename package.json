@@ -3,13 +3,21 @@
   "version": "1.0.0",
   "description": "book app",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c --watch",
+    "live-server": "live-server"
   },
   "author": "Alexander Svirzhevsky",
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.1",
     "eslint": "^8.49.0",
-    "rollup": "^3.29.1"
+    "rollup": "^3.29.1",
+    "rollup-plugin-import-css": "^3.3.1"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
   }
 }
