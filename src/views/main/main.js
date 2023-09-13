@@ -2,10 +2,12 @@ import onChange from "on-change";
 import { AbstractView } from "../../common/view";
 import { Header } from "../../components/header/header";
 import { Search } from "../../components/search/search";
+import { Cards } from "../../components/cards/cards";
 
 export class MainView extends AbstractView {
   state = {
     list: [],
+    numFound: 0,
     loading: false,
     searchQuery: undefined,
     offset: 0,
@@ -33,9 +35,13 @@ export class MainView extends AbstractView {
         this.state.searchQuery,
         this.state.offset
       );
-
       this.state.loading = false;
+      this.state.numFound = data.numFound;
       this.state.list = data.docs;
+    }
+
+    if (path === "list" || path === "loading") {
+      this.render();
     }
   }
 
@@ -49,6 +55,7 @@ export class MainView extends AbstractView {
   render() {
     const main = document.createElement("div");
     main.append(new Search(this.state).render());
+    main.append(new Cards(this.state, this.appState).render());
     this.app.innerHTML = "";
     this.app.append(main);
     this.renderHeader();
