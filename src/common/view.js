@@ -11,7 +11,7 @@ export class AbstractView {
     return;
   }
 
-  unmounte() {
+  unmount() {
     return;
   }
 }

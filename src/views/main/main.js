@@ -21,7 +21,7 @@ export class MainView extends AbstractView {
     this.setTitle("Book searching");
   }
 
-  unmounte() {
+  unmount() {
     onChange.unsubscribe(this.appState);
     onChange.unsubscribe(this.state);
     this.app.innerHTML = "";

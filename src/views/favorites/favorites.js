@@ -17,7 +17,7 @@ export class Favorites extends AbstractView {
     }
   }
 
-  unmounte() {
+  unmount() {
     onChange.unsubscribe(this.appState);
   }
 

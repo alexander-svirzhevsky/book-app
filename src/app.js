@@ -17,7 +17,7 @@ class App {
 
   route() {
     if (this.currentView) {
-      this.currentView.unmounte();
+      this.currentView.unmount();
     }
 
     console.log(location.hash);
