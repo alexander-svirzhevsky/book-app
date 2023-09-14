@@ -21,9 +21,15 @@ export class MainView extends AbstractView {
     this.setTitle("Book searching");
   }
 
+  unmounte() {
+    onChange.unsubscribe(this.appState);
+    onChange.unsubscribe(this.state);
+    this.app.innerHTML = "";
+  }
+
   appStateHook(path) {
     if (path === "favorites") {
-      console.log(path);
+      this.render();
     }
   }
 

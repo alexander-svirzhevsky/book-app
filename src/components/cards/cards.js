@@ -10,7 +10,8 @@ export class Cards extends DivComponent {
   }
 
   render() {
-    this.el.classList.add("cards");
+    const cardGrid = document.createElement("div");
+    cardGrid.classList.add("card_grid");
     if (this.parentState.loading) {
       this.el.innerHTML = `
         <div class="cards__loader">Loading...</div>
@@ -22,10 +23,10 @@ export class Cards extends DivComponent {
         </h1>
       `;
     }
+    this.el.append(cardGrid);
     for (const card of this.parentState.list) {
-      this.el.append(new Card(this.appState, card).render());
+      cardGrid.append(new Card(this.appState, card).render());
     }
-
     return this.el;
   }
 }
